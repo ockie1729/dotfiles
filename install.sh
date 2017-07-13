@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ln -s .init.el ~/.emacs.d/init.el
+ln -s "$(pwd)/init.el" "$HOME/.emacs.d/init.el"
