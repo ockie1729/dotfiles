@@ -43,3 +43,7 @@
 
 ;; Javascript
 (setq js-indent-level 2)
+
+;; Ruby
+;; マジックコメントを入れない
+(setq ruby-insert-encoding-magic-comment nil)
