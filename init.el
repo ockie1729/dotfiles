@@ -11,6 +11,8 @@
     auto-complete
     flycheck
     yatex
+    ruby-end
+    ruby-block
    ))
 
 ;; my/favorite-packagesからインストールしていないパッケージをインストール
@@ -48,7 +50,16 @@
 ;; Ruby
 ;; マジックコメントを入れない
 (setq ruby-insert-encoding-magic-comment nil)
-
+(require 'ruby-end)
+(add-hook 'ruby-mode-hook
+  '(lambda ()
+    (abbrev-mode 1)
+    (electric-pair-mode t)
+    (electric-indent-mode t)
+    (electric-layout-mode t)))
+(require 'ruby-block)
+(ruby-block-mode t)
+(setq ruby-block-highlight-toggle t)
 
 ;; YaTeX
 (autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
