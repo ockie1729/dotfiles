@@ -14,6 +14,10 @@
     ruby-end
     ruby-block
     web-mode
+    haml-mode
+    go-mode
+    markdown-mode
+    stan-mode
    ))
 
 ;; my/favorite-packagesからインストールしていないパッケージをインストール
@@ -28,7 +32,15 @@
 (global-set-key "\C-m" 'newline-and-indent)
 
 ;; 行番号を表示
-(custom-set-variables '(global-linum-mode t))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(global-linum-mode t)
+ '(package-selected-packages
+   (quote
+    (scala-mode haskell-mode rust-mode yatex web-mode undo-tree smartparens ruby-end ruby-block php-mode markdown-mode haml-mode go-mode flycheck auto-complete))))
 
 ;; 変更のあったファイルの自動再読み込み
 (global-auto-revert-mode t)
@@ -39,16 +51,34 @@
 ;; smartparens
 (smartparens-global-mode t)
 
+;; 対応する括弧をハイライト
+(show-paren-mode t)
+
 ;; undo-tree
 (global-undo-tree-mode)
 
 ;; auto-complete
 (ac-config-default)
 
+;; 一行で指定文字数を超えるとハイライト
+(add-hook 'c-mode-hook
+  (lambda ()
+    (font-lock-add-keywords nil
+      '(("^[^\n]\\{80\\}\\(.*\\)$" 1 font-lock-warning-face t)))))
+(add-hook 'python-mode-hook
+  (lambda ()
+    (font-lock-add-keywords nil
+      '(("^[^\n]\\{80\\}\\(.*\\)$" 1 font-lock-warning-face t)))))
+(add-hook 'ruby-mode-hook
+  (lambda ()
+    (font-lock-add-keywords nil
+      '(("^[^\n]\\{80\\}\\(.*\\)$" 1 font-lock-warning-face t)))))
+
 ;; Javascript
 (setq js-indent-level 2)
 
 ;; web-mode
+;; TODO smartparens-modeとconflict起こさない設定はしてある？
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.js$"       . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?$"     . web-mode))
@@ -225,3 +255,10 @@
 
 (define-key global-map
   "\C-cs" 'scheme-other-window)
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
