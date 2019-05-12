@@ -18,6 +18,8 @@
     go-mode
     markdown-mode
     stan-mode
+    yaml-mode
+    julia-mode
    ))
 
 ;; my/favorite-packagesからインストールしていないパッケージをインストール
