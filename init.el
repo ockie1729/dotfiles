@@ -12,7 +12,6 @@
     flycheck
     yatex
     ruby-end
-    ruby-block
     web-mode
     haml-mode
     go-mode
@@ -42,7 +41,7 @@
  '(global-linum-mode t)
  '(package-selected-packages
    (quote
-    (scala-mode haskell-mode rust-mode yatex web-mode undo-tree smartparens ruby-end ruby-block php-mode markdown-mode haml-mode go-mode flycheck auto-complete))))
+    (scala-mode haskell-mode rust-mode yatex web-mode undo-tree smartparens ruby-end php-mode markdown-mode haml-mode go-mode flycheck auto-complete))))
 
 ;; 変更のあったファイルの自動再読み込み
 (global-auto-revert-mode t)
@@ -110,9 +109,6 @@
     (electric-pair-mode t)
     (electric-indent-mode t)
     (electric-layout-mode t)))
-(require 'ruby-block)
-(ruby-block-mode t)
-(setq ruby-block-highlight-toggle t)
 
 ;; YaTeX
 (autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
