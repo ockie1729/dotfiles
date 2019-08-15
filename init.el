@@ -76,6 +76,16 @@
     (font-lock-add-keywords nil
       '(("^[^\n]\\{80\\}\\(.*\\)$" 1 font-lock-warning-face t)))))
 
+;; 新規ファイルを開いた時テンプレートを挿入
+(require 'autoinsert)
+(add-hook 'find-file-hooks 'auto-insert)
+(setq auto-insert-directory "~/.emacs.d/insert/")
+(setq auto-insert-alist
+      (append '(
+		("\\.py" . "template.py")
+		("\\.sh" . "template.sh")
+		) auto-insert-alist))
+
 ;; Javascript
 (setq js-indent-level 2)
 
