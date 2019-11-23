@@ -22,6 +22,7 @@
     recentf-ext
     yasnippet
     yasnippet-snippets
+    fixmee
    ))
 
 ;; my/favorite-packagesからインストールしていないパッケージをインストール
@@ -77,6 +78,10 @@
   (lambda ()
     (font-lock-add-keywords nil
       '(("^[^\n]\\{80\\}\\(.*\\)$" 1 font-lock-warning-face t)))))
+
+;; FIXME, TODOなどをハイライト
+(require 'fixmee)
+(global-fixmee-mode 1)
 
 ;; 新規ファイルを開いた時テンプレートを挿入
 (require 'autoinsert)
