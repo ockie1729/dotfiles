@@ -22,6 +22,7 @@
     recentf-ext
     yasnippet
     yasnippet-snippets
+    helm
    ))
 
 ;; my/favorite-packagesからインストールしていないパッケージをインストール
@@ -122,6 +123,13 @@
 (require 'recentf-ext)
 (global-set-key (kbd "C-c o") 'recentf-open-files)
 
+;; helm
+(require 'helm-config)
+(helm-mode 1)
+
+;;;
+;;;
+;;;
 
 ;; Javascript
 (setq js-indent-level 2)
