@@ -131,6 +131,15 @@
 ;;;
 ;;;
 
+;; Golang
+(require 'go-mode)
+(add-hook 'go-mode-hook
+	  (lambda()
+	    (add-hook 'before-save-hook 'gofmt-before-save)
+	    (setq indent-tabs-mode t)
+	    (setq c-basic-offset 4)
+	    (setq tab-width 4)))
+
 ;; Javascript
 (setq js-indent-level 2)
 
