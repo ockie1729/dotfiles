@@ -1,6 +1,6 @@
 ## install
 ```sh
-git clone https://github.com/mofumofuchan/dotfiles
+git clone https://github.com/mofumofu1729/dotfiles
 cd dotfiles
-./install.sh
+sh ./install.sh
 ```
